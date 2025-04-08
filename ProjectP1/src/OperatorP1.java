@@ -49,10 +49,10 @@ public class OperatorP1
 	{
 		
       OperatorP1 f1=new OperatorP1();
-      //f1.arithmeticOperator();
+      f1.arithmeticOperator();
       //f1.comparsionOperator();
       //f1.logicalOperator();
-      f1.bitwiseOperator();
+      //f1.bitwiseOperator();
 	}
 
 }
