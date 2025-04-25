@@ -1,8 +1,10 @@
 
 public class Sample1 {
 
+	final int a=100;
 	void get1()
-	{
+	{ 
+		a++;
 		System.out.println("This is get1 method");
 	}
 	void get2()
