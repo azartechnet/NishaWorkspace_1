@@ -1,7 +1,8 @@
 
 public class Sample1 {
 
-	final int a=100;
+	int a=100;
+	//final int a=100;
 	void get1()
 	{ 
 		a++;
