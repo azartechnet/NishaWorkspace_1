@@ -7,6 +7,9 @@ import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.JTextField;
 import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.io.IOException;
+import java.awt.event.ActionEvent;
 
 public class LoginPage extends JFrame {
 
@@ -69,6 +72,22 @@ public class LoginPage extends JFrame {
 		textField_1.setColumns(10);
 		
 		JButton btnNewButton = new JButton("Login");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e)
+			{
+				try
+				{
+					String u1=textField.getText();
+					String p1=textField_1.getText();
+					
+					System.out.println("Data is::"+u1+""+p1);
+				}
+				catch(Exception t)
+				{
+					System.out.println(t);
+				}
+			}
+		});
 		btnNewButton.setBounds(129, 315, 85, 21);
 		contentPane.add(btnNewButton);
 		
