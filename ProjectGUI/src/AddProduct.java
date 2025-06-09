@@ -4,9 +4,16 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.Font;
 import javax.swing.JTextField;
 import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.Statement;
+import java.awt.event.ActionEvent;
 
 public class AddProduct extends JFrame {
 
@@ -80,6 +87,34 @@ public class AddProduct extends JFrame {
 		textField_2.setColumns(10);
 		
 		JButton btnNewButton = new JButton("AddProduct");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e)
+			{
+				try
+				{
+					String pid=textField.getText();
+					String pname=textField_1.getText();
+					String pprice=textField_2.getText();
+					
+					
+					String str1="insert into product values('"+pid+"','"+pname+"','"+pprice+"')";
+					//Register the driver class
+					
+					Class.forName("com.mysql.cj.jdbc.Driver");
+					
+					//Creating a connection
+					
+					Connection conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/Mrgnishadb","root","root");
+					Statement stmt=conn.createStatement();
+					stmt.executeUpdate(str1);
+					JOptionPane.showMessageDialog(btnNewButton, "InsertedSucess!!!");
+				}
+				catch(Exception t)
+				{
+					System.out.println(t);
+				}
+			}
+		});
 		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 13));
 		btnNewButton.setBounds(102, 322, 132, 23);
 		contentPane.add(btnNewButton);
