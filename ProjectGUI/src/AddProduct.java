@@ -12,6 +12,7 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.Statement;
 import java.awt.event.ActionEvent;
 
@@ -120,11 +121,61 @@ public class AddProduct extends JFrame {
 		contentPane.add(btnNewButton);
 		
 		JButton btnNewButton_1 = new JButton("View");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) 
+			{
+				try
+				{
+					String pid=textField.getText();
+					String str1="select * from product where pid='"+pid+"'";
+					//Register the driver class
+					
+					Class.forName("com.mysql.cj.jdbc.Driver");
+					
+					//Creating a connection
+					
+					Connection conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/Mrgnishadb","root","root");
+					Statement stmt=conn.createStatement();
+					ResultSet rs=stmt.executeQuery(str1);
+					rs.next();
+					String r1=rs.getString(2);
+					String r2=rs.getString(3);
+					}
+				catch(Exception t)
+				{
+					System.out.println(t);
+				}
+			}
+		});
 		btnNewButton_1.setFont(new Font("Tahoma", Font.BOLD, 13));
 		btnNewButton_1.setBounds(294, 322, 88, 23);
 		contentPane.add(btnNewButton_1);
 		
 		JButton btnNewButton_1_1 = new JButton("Delete");
+		btnNewButton_1_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e)
+			{
+				try
+				{
+					String pid=textField.getText();
+					String str1="delete from product where pid='"+pid+"'";
+					//Register the driver class
+					
+					Class.forName("com.mysql.cj.jdbc.Driver");
+					
+					//Creating a connection
+					
+					Connection conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/Mrgnishadb","root","root");
+					Statement stmt=conn.createStatement();
+					stmt.executeUpdate(str1);
+					JOptionPane.showMessageDialog(btnNewButton_1_1,"deleted...");
+				}
+				catch(Exception t)
+				{
+					System.out.println(t);
+				}
+			}
+		});
 		btnNewButton_1_1.setFont(new Font("Tahoma", Font.BOLD, 13));
 		btnNewButton_1_1.setBounds(425, 321, 94, 23);
 		contentPane.add(btnNewButton_1_1);
