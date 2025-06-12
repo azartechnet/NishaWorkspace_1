@@ -140,6 +140,9 @@ public class AddProduct extends JFrame {
 					rs.next();
 					String r1=rs.getString(2);
 					String r2=rs.getString(3);
+					textField_1.setText(r1);
+					textField_2.setText(r2);
+					JOptionPane.showMessageDialog(btnNewButton_1,"Searching..");
 					}
 				catch(Exception t)
 				{
@@ -181,6 +184,29 @@ public class AddProduct extends JFrame {
 		contentPane.add(btnNewButton_1_1);
 		
 		JButton btnNewButton_1_1_1 = new JButton("Update");
+		btnNewButton_1_1_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) 
+			{
+				try
+				{
+					String pid=textField.getText();
+					String pname=textField_1.getText();
+					String str1="update product set pname='"+pname+"' where pid='"+pid+"'";
+					 // Load MySQL JDBC Driver
+				    Class.forName("com.mysql.cj.jdbc.Driver");
+
+				    // Establish connection to the MySQL database
+				    Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/Mrgnishadb","root","root");
+					Statement stmt=conn.createStatement();
+					stmt.executeUpdate(str1);
+					JOptionPane.showMessageDialog(btnNewButton_1_1_1,"Updated");
+				}
+				catch(Exception t)
+				{
+					
+				}
+			}
+		});
 		btnNewButton_1_1_1.setFont(new Font("Tahoma", Font.BOLD, 13));
 		btnNewButton_1_1_1.setBounds(434, 229, 85, 21);
 		contentPane.add(btnNewButton_1_1_1);
