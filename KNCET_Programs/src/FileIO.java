@@ -1,6 +1,9 @@
+import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.SequenceInputStream;
 
@@ -72,13 +75,52 @@ public class FileIO {
 			
 		}
 	}
+	void fileReader() throws IOException
+	{
+		FileReader fr=new FileReader("D:\\xyz.txt");
+		BufferedReader br=new BufferedReader(fr);
+		int i;
+		while((i=br.read())!=-1)
+		{
+			System.out.print((char)i);
+		}
+		br.close();
+		fr.close();
+	}
+	void fileWriter() throws IOException
+	{
+		try
+		{
+			
+			FileWriter f1=new FileWriter("D:\\output.txt");
+			f1.write("Welcome");
+			f1.close();
+			System.out.println("FileWriting...");
+			
+		}
+		catch(FileNotFoundException t)
+		{
+			
+		}
+	}
+	void fileAppending() throws IOException
+	{
+		try(FileWriter out=new FileWriter("D:\\output.txt",true)){
+			//Append mode
+			out.write("\nAppendingdata2");
+			System.out.println("Append Good");
+		}
+	}
 	public static void main(String[] args) throws IOException {
 		
 		FileIO f1=new FileIO();
 		//f1.writeData();
 		//f1.readData();
 		//f1.copyData();
-		f1.seqread();
+		//f1.seqread();
+		//f1.fileReader();
+		//f1.fileWriter();
+		f1.fileAppending();
 
 	}
 
