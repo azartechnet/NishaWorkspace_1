@@ -6,10 +6,8 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.JButton;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
 
-public class AdminHomePage extends JFrame {
+public class HomePage extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
@@ -21,7 +19,7 @@ public class AdminHomePage extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					AdminHomePage frame = new AdminHomePage();
+					HomePage frame = new HomePage();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -33,28 +31,30 @@ public class AdminHomePage extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public AdminHomePage() {
+	public HomePage() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 748, 593);
+		setBounds(100, 100, 685, 411);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblNewLabel = new JLabel("AdminHomePage");
-		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		lblNewLabel.setBounds(261, 56, 209, 31);
+		JLabel lblNewLabel = new JLabel("HRSYSTEM");
+		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 18));
+		lblNewLabel.setBounds(266, 25, 144, 58);
 		contentPane.add(lblNewLabel);
 		
-		JButton btnNewButton = new JButton("AddProduct");
-		btnNewButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e)
-			{
-				new AddProduct().setVisible(true);
-			}
-		});
-		btnNewButton.setBounds(273, 148, 133, 38);
+		JButton btnNewButton = new JButton("AdminLogin");
+		btnNewButton.setBounds(254, 121, 144, 31);
 		contentPane.add(btnNewButton);
+		
+		JButton btnNewButton_1 = new JButton("UserLogin");
+		btnNewButton_1.setBounds(254, 197, 144, 31);
+		contentPane.add(btnNewButton_1);
+		
+		JButton btnNewButton_2 = new JButton("Register");
+		btnNewButton_2.setBounds(254, 279, 144, 31);
+		contentPane.add(btnNewButton_2);
 	}
 }
