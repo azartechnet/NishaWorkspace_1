@@ -27,6 +27,7 @@ class Student
 }
 public class ConstructorP1 {
 
+	
 	public static void main(String[] args) {
 		
 		new Student();

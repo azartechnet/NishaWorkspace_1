@@ -23,6 +23,7 @@ class Foo implements B3
 }
 public class InterfaceConcepts {
 
+	
 	public static void main(String[] args) {
 		
 		Foo f1=new Foo();
