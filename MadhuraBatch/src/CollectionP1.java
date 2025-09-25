@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.TreeSet;
@@ -5,7 +6,8 @@ import java.util.TreeSet;
 class Sample13
 {
 //	HashSet<Integer>list1=new HashSet<Integer>();
-	TreeSet<Integer>list1=new TreeSet<Integer>();
+	//TreeSet<Integer>list1=new TreeSet<Integer>();
+	ArrayList<Integer>list1=new ArrayList<Integer>();
 	void process()
 	{
 		list1.add(1001);
