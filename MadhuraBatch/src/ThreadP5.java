@@ -42,6 +42,7 @@ public class ThreadP5 extends Thread
 		catch (InterruptedException e) {
 			// TODO: handle exception
 		}
+		t2.start();
 	}
 	
 
